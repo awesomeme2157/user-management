@@ -1,0 +1,21 @@
+/* src/styles.css */
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: sans-serif;
+}
+
+.login-form,
+.loggedin,
+.user-list {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+}
