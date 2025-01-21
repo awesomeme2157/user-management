@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        index: true,            // Index for faster lookups
+        index: true,
         trim: true,
         lowercase: true
     },
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // Example of storing an encrypted field
+    // example to store the data at rest with encryption
     secretData: {
         type: String,
         get: (encrypted) => (encrypted ? decrypt(encrypted) : null),
@@ -33,12 +33,11 @@ const userSchema = new mongoose.Schema({
         default: 'active'
     }
 }, {
-    timestamps: true  // Automatically adds createdAt and updatedAt fields
+    timestamps: true
 });
 
-// Hash password before saving to DB
+
 userSchema.pre('save', async function (next) {
-    // Only hash the password if it has been modified (or is new)
     if (!this.isModified('hashedPassword')) return next();
     try {
         this.hashedPassword = await bcrypt.hash(this.hashedPassword, 10);

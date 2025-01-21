@@ -7,19 +7,17 @@ const connectDB = require('./config/db');
 const app = express();
 const logger = require('./logger');
 
-// Connect to the database
+const PORT = process.env.PORT || 4000;
+
 connectDB();
 
-// Use custom logger (e.g., Morgan-like functionality)
 app.use(logger);
 
-// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(cors());
 
-// Rate limiter
 const apiLimiter = require('./middlewares/apiLimiter');
 app.use('/api', apiLimiter);
 
@@ -32,13 +30,10 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/logs', logsRoutes);
 
-// Health check
 app.get('/', (req, res) => {
-    res.send('API is running...');
+    res.send('Hello There!');
 });
 
-// Start the server
-const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });

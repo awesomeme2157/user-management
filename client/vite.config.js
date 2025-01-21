@@ -18,7 +18,7 @@ export default defineConfig({
     // If your backend is on 4000 and you want to avoid CORS, you could do:
     /*
     proxy: {
-      '/api': 'http://localhost:4000',
+      '/api': 'https://user-management-s0d3.onrender.com',
     },
     */
   },

@@ -20,7 +20,7 @@ export default function ActivityLog({ token }) {
       if (end) params.append("end", end);
 
       const response = await fetch(
-        `http://localhost:4000/api/logs/activity?${params.toString()}`,
+        `https://user-management-s0d3.onrender.com/api/logs/activity?${params.toString()}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

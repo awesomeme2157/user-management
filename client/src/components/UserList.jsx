@@ -19,7 +19,7 @@ export default function UserList({ token }) {
     const fetchUsers = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:4000/api/users", {
+        const res = await fetch("https://user-management-s0d3.onrender.com/api/users", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -77,7 +77,7 @@ export default function UserList({ token }) {
     setSuccess("");
 
     try {
-      const res = await fetch(`http://localhost:4000/api/users/${userId}`, {
+      const res = await fetch(`https://user-management-s0d3.onrender.com/api/users/${userId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
