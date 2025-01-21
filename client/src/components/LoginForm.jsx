@@ -1,6 +1,8 @@
 // src/LoginForm.jsx
-// eslint-disable-next-line
+//eslint-disable-next-line
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+import "./Form.css"; // Shared CSS for Login and Signup forms
 
 export default function LoginForm({ onLoginSuccess }) {
   const [email, setEmail] = useState("");
@@ -19,46 +21,50 @@ export default function LoginForm({ onLoginSuccess }) {
       });
 
       if (!response.ok) {
-        // Attempt to parse error from backend
         const errData = await response.json();
         throw new Error(errData.error || "Login failed");
       }
 
-      const { token, user } = await response.json();
-      onLoginSuccess(token, user);
+      const data = await response.json();
+      onLoginSuccess(data.token, data.user);
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div className="login-form">
-      <h3>Login</h3>
-      {error && <p className="error">{error}</p>}
-
+    <div className="form-container">
+      <h2>Login</h2>
+      {error && <p className="form-error">{error}</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Email:</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
+            id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-
         <div className="form-group">
-          <label>Password:</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
+            id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-
-        <button type="submit">Login</button>
+        <button type="submit" className="form-button">
+          Login
+        </button>
       </form>
     </div>
   );
 }
+
+LoginForm.propTypes = {
+  onLoginSuccess: PropTypes.func.isRequired,
+};
