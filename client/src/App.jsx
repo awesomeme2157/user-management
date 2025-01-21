@@ -6,6 +6,8 @@ import SignupForm from "./components/SignupForm";
 import UserList from "./components/UserList";
 import LoginHistory from "./components/LoginHistory";
 import ActivityLog from "./components/ActivityLog"; // Import ActivityLog component
+import { ToastContainer, toast } from "react-toastify"; // Import Toastify components
+import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 import "./App.css"; // Optional: for global styles
 
 function App() {
@@ -37,6 +39,7 @@ function App() {
     localStorage.setItem("token", jwtToken);
     localStorage.setItem("user", JSON.stringify(userInfo));
     setError("");
+    toast.success("Login successful!"); // Toast notification for login
   };
 
   const handleSignupSuccess = (jwtToken, userInfo) => {
@@ -45,6 +48,7 @@ function App() {
     localStorage.setItem("token", jwtToken);
     localStorage.setItem("user", JSON.stringify(userInfo));
     setError("");
+    toast.success("Signup successful! Head to login!"); // Toast notification for signup
   };
 
   const handleLogout = () => {
@@ -52,6 +56,7 @@ function App() {
     setUser(null);
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    toast.info("You have logged out."); // Toast notification for logout
   };
 
   return (
@@ -93,6 +98,9 @@ function App() {
       ) : (
         <p>Please log in to see admin sections.</p>
       )}
+
+      {/* Toast Container */}
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }
