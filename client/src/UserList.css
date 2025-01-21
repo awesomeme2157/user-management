@@ -1,0 +1,83 @@
+/* src/UserList.css
+
+.user-list-container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.error-message {
+    color: red;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.user-table th,
+.user-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.user-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.user-table tr:hover {
+    background-color: #ddd;
+} */
+
+
+/* src/UserList.css */
+
+.user-list-container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.user-table th,
+.user-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.user-table th {
+    background-color: #f2f2f2;
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.user-table tr:hover {
+    background-color: #ddd;
+}
+
+.user-table button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.user-table button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}

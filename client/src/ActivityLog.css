@@ -1,0 +1,51 @@
+src/ActivityLog.css .activity-log-container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.error-message {
+    color: red;
+}
+
+.filters {
+    margin-bottom: 10px;
+}
+
+.filters label {
+    margin-right: 15px;
+}
+
+.filters input {
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.filters button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.activity-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.activity-table th,
+.activity-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.activity-table th {
+    background-color: #f2f2f2;
+}
+
+.activity-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.activity-table tr:hover {
+    background-color: #ddd;
+}
